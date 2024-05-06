@@ -28,24 +28,22 @@ for (let ukol of ukoly) {
     })
 }
 
-document.querySelector("button#rbttn1").addEventListener("click", () => {
-    for (let ukol of ukoly) {
-        if(ukol.className == "splneno"){
+function filtrovat_ukoly(filtrovany) {
+    for (const ukol of ukoly) {
+        if(ukol.className == filtrovany) {
             ukol.style.display = ""
         } else {
             ukol.style.display = "none"
         }
     }
+}
+
+document.querySelector("button#rbttn1").addEventListener("click", () => {
+    filtrovat_ukoly("splneno")
 })
 
 document.querySelector("button#rbttn2").addEventListener("click", () => {
-    for (let ukol of ukoly) {
-        if(ukol.className == "rozpracovano"){
-            ukol.style.display = ""
-        } else {
-            ukol.style.display = "none"
-        }
-    }
+    filtrovat_ukoly("rozpracovano")
 })
 
 document.querySelector("button#rbttn3").addEventListener("click", () => {
